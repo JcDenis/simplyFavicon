@@ -10,7 +10,9 @@
 # http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
 # -- END LICENSE BLOCK ------------------------------------
 
-if (!defined('DC_RC_PATH')){return;}
+if (!defined('DC_RC_PATH')){
+	return;
+}
  
 $this->registerModule(
 	/* Name */			"Simply favicon",
@@ -19,4 +21,3 @@ $this->registerModule(
 	/* Version */			'2021.08.15',
 	/* Permissions */		'admin'
 );
-?>

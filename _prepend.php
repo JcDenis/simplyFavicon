@@ -10,9 +10,10 @@
 # http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
 # -- END LICENSE BLOCK ------------------------------------
 
-if (!defined('DC_RC_PATH')){return;}
+if (!defined('DC_RC_PATH')){
+	return;
+}
 
-$__autoload['publicSimplyFavicon'] = dirname(__FILE__).'/_public.php';
+$__autoload['publicSimplyFavicon'] = dirname(__FILE__) . '/_public.php';
 
-$core->url->register('simplyFavicon','favicon','^favicon.(.*?)$',array('publicSimplyFavicon','simplyFaviconUrl'));
-?>
+$core->url->register('simplyFavicon', 'favicon', '^favicon.(.*?)$', ['publicSimplyFavicon', 'simplyFaviconUrl']);
