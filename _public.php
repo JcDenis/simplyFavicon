@@ -32,7 +32,7 @@ class publicSimplyFavicon extends dcUrlHandlers
 		global $core;
 		
 		$mimetypes = self::$mimetypes;
-		$public_path = path::real(path::fullFromRoot((string) $core->blog->settings->public_path, DC_ROOT)) . '/favicon.';
+		$public_path = path::real(path::fullFromRoot($core->blog->settings->system->public_path, DC_ROOT)) . '/favicon.';
 
 		if (!$core->blog->settings->system->simply_favicon 
 		 || empty($arg) 
@@ -55,7 +55,7 @@ class publicSimplyFavicon extends dcUrlHandlers
 		}
 		
 		$mimetypes = self::$mimetypes;
-		$public_path = path::real(path::fullFromRoot((string) $core->blog->settings->public_path, DC_ROOT)) . '/favicon.';
+		$public_path = path::real(path::fullFromRoot($core->blog->settings->system->public_path, DC_ROOT)) . '/favicon.';
 		$public_url = $core->blog->url.$core->url->getBase('simplyFavicon') . '.';
 		
 		// ico : IE6

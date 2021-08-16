@@ -18,6 +18,6 @@ $this->registerModule(
 	/* Name */			"Simply favicon",
 	/* Description*/		"Multi-agents favicon",
 	/* Author */			"JC Denis",
-	/* Version */			'2021.08.15',
+	/* Version */			'2021.08.16',
 	/* Permissions */		'admin'
 );
