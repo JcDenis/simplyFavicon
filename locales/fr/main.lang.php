@@ -9,5 +9,3 @@ $GLOBALS['__l10n']['Enable "Simply favicon" extension'] = 'Activer l\'extension 
 
 #_admin.php:28
 $GLOBALS['__l10n']['You must place an image called favicon.png or .jpg or .ico into your blog\'s public directory.'] = 'Vous devez placer une image nommée favicon.png, .jpg ou .ico dans le répertoire publique du blog.';
-
-?>

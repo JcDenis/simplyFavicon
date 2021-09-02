@@ -1,15 +1,15 @@
 <?php
-# -- BEGIN LICENSE BLOCK ----------------------------------
-#
-# This file is part of simplyFavicon, a plugin for Dotclear 2.
-# 
-# Copyright (c) 2009-2021 Jean-Christian Denis and contributors
-# 
-# Licensed under the GPL version 2.0 license.
-# A copy of this license is available in LICENSE file or at
-# http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
-#
-# -- END LICENSE BLOCK ------------------------------------
+/**
+ * @brief simplyFavicon, a plugin for Dotclear 2
+ * 
+ * @package Dotclear
+ * @subpackage Plugin
+ * 
+ * @author Jean-Christian Denis
+ * 
+ * @copyright Jean-Christian Denis
+ * @copyright GPL-2.0 https://www.gnu.org/licenses/gpl-2.0.html
+ */
 
 if (!defined('DC_RC_PATH')){
     return;
@@ -27,11 +27,11 @@ class publicSimplyFavicon extends dcUrlHandlers
         'jpg' => 'image/jpeg',
         'mng' => 'video/x-mng'
     );
-    
+
     public static function simplyFaviconUrl($arg)
     {
         global $core;
-        
+
         $mimetypes = self::$mimetypes;
         $public_path = path::real(path::fullFromRoot($core->blog->settings->system->public_path, DC_ROOT)) . '/favicon.';
 
@@ -48,17 +48,17 @@ class publicSimplyFavicon extends dcUrlHandlers
             exit;
         }
     }
-    
+
     public static function publicHeadContent($core)
     {
         if (!$core->blog->settings->system->simply_favicon){
             return;
         }
-        
+
         $mimetypes = self::$mimetypes;
         $public_path = path::real(path::fullFromRoot($core->blog->settings->system->public_path, DC_ROOT)) . '/favicon.';
         $public_url = $core->blog->url.$core->url->getBase('simplyFavicon') . '.';
-        
+
         // ico : IE6
         if (file_exists($public_path . 'ico') && '?' != substr($core->blog->url, -1)) {
             echo 
