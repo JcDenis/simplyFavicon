@@ -26,6 +26,9 @@ $this->registerModule(
         'type' => 'plugin',
         'support' => 'https://github.com/JcDenis/simplyFavicon',
         'details' => 'http://plugins.dotaddict.org/dc2/details/simplyFavicon',
-        'repository' => 'https://raw.githubusercontent.com/JcDenis/simplyFavicon/master/dcstore.xml'
+        'repository' => 'https://raw.githubusercontent.com/JcDenis/simplyFavicon/master/dcstore.xml',
+        'settings' => [
+            'blog' => '#params.simply_favicon_params'
+        ]
     ]
 );
