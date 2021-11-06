@@ -1,9 +1,14 @@
+dev
+- fix PSR12 CS
+- update readme file
+- remove .lang.php file
+
 2021.09.02
 - clean up code
 - add dcstore.xml pre-release file
 
 2021.08.18
- * update license
+- update license
 
 2011.04.08
- * first version
+- first version
