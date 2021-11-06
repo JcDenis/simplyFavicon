@@ -31,30 +31,30 @@ class publicSimplyFavicon extends dcUrlHandlers
     {
         global $core;
 
-        $mimetypes   = self::$mimetypes;
-        $public_path = path::real(path::fullFromRoot($core->blog->settings->system->public_path, DC_ROOT)) . '/favicon.';
+        $public_path = path::fullFromRoot($core->blog->settings->system->public_path, DC_ROOT);
 
-        if (!$core->blog->settings->system->simply_favicon
-         || empty($arg)
-         || !array_key_exists($arg, $mimetypes)
-         || file_exists($public_path . 'favicon' . $arg)
+        if ($core->blog->settings->system->simply_favicon
+            && !empty($arg)
+            && array_key_exists($arg, self::$mimetypes)
+            && file_exists($public_path . '/favicon.' . $arg)
         ) {
-            throw new Exception('Page not found', 404);
+            header('Content-Type: ' . self::$mimetypes[$arg] . ';');
+            readfile($public_path . '/favicon.' . $arg);
+            exit;
         }
 
-        header('Content-Type: ' . $mimetypes[$arg] . ';');
-        readfile($public_path . $arg);
-        exit;
+        self::p404();
+
+        return null;
     }
 
     public static function publicHeadContent($core)
     {
         if (!$core->blog->settings->system->simply_favicon) {
-            return;
+            return null;
         }
 
-        $mimetypes   = self::$mimetypes;
-        $public_path = path::real(path::fullFromRoot($core->blog->settings->system->public_path, DC_ROOT)) . '/favicon.';
+        $public_path = path::fullFromRoot($core->blog->settings->system->public_path, DC_ROOT) . '/favicon.';
         $public_url  = $core->blog->url . $core->url->getBase('simplyFavicon') . '.';
 
         // ico : IE6
@@ -67,10 +67,12 @@ class publicSimplyFavicon extends dcUrlHandlers
             echo
             '<link rel="apple-touch-icon" href="' . $public_url . 'png" />' . "\n" .
             '<link rel="icon" type="image/png" href="' . $public_url . 'png" />' . "\n";
-        }
         // all others
-        else {
-            foreach ($mimetypes as $ext => $mime) {
+        } else {
+            foreach (self::$mimetypes as $ext => $mime) {
+                if (in_array($ext, ['ico', 'png'])) {
+                    continue;
+                }
                 if (file_exists($public_path . $ext)) {
                     echo
                     '<link rel="icon" type="' . $mime . '" href="' . $public_url . $ext . '" />' . "\n";
