@@ -2,6 +2,8 @@ dev
 - fix PSR12 CS
 - update readme file
 - remove .lang.php file
+- add test on blog pref form
+- fix public url test
 
 2021.09.02
 - clean up code

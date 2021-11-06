@@ -1,11 +1,13 @@
+<?xml version="1.0"?>
 <modules xmlns:da="http://dotaddict.org/da/">
-<module id="simplyFavicon">
-<name>Simply favicon</name>
-<version>2021.09.02</version>
-<author>Jean-Christian Denis</author>
-<desc>Multi-agents favicon</desc>
-<file>https://github.com/JcDenis/simplyFavicon/releases/download/v2021.09.02/plugin-simplyFavicon.zip</file>
-<da:details>http://plugins.dotaddict.org/dc2/details/simplyFavicon</da:details>
-<da:support>https://github.com/JcDenis/simplyFavicon</da:support>
-</module>
+  <module id="simplyFavicon">
+    <name>Simply favicon</name>
+    <version>2021.11.06</version>
+    <author>Jean-Christian Denis</author>
+    <desc>Multi-agents favicon</desc>
+    <file>https://github.com/JcDenis/simplyFavicon/releases/download/v2021.11.06/plugin-simplyFavicon.zip</file>
+    <da:dcmin>2.19</da:dcmin>
+    <da:details>http://plugins.dotaddict.org/dc2/details/simplyFavicon</da:details>
+    <da:support>https://github.com/JcDenis/simplyFavicon</da:support>
+  </module>
 </modules>
