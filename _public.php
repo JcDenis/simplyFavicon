@@ -14,7 +14,7 @@ if (!defined('DC_RC_PATH')) {
     return;
 }
 
-$core->addBehavior('publicHeadContent', ['publicSimplyFavicon', 'publicHeadContent']);
+dcCore::app()->addBehavior('publicHeadContent', ['publicSimplyFavicon', 'publicHeadContent']);
 
 class publicSimplyFavicon extends dcUrlHandlers
 {
@@ -24,16 +24,14 @@ class publicSimplyFavicon extends dcUrlHandlers
         'bmp' => 'image/bmp',
         'gif' => 'image/gif',
         'jpg' => 'image/jpeg',
-        'mng' => 'video/x-mng'
+        'mng' => 'video/x-mng',
     ];
 
     public static function simplyFaviconUrl($arg)
     {
-        global $core;
+        $public_path = path::fullFromRoot(dcCore::app()->blog->settings->system->public_path, DC_ROOT);
 
-        $public_path = path::fullFromRoot($core->blog->settings->system->public_path, DC_ROOT);
-
-        if ($core->blog->settings->system->simply_favicon
+        if (dcCore::app()->blog->settings->system->simply_favicon
             && !empty($arg)
             && array_key_exists($arg, self::$mimetypes)
             && file_exists($public_path . '/favicon.' . $arg)
@@ -48,17 +46,17 @@ class publicSimplyFavicon extends dcUrlHandlers
         return null;
     }
 
-    public static function publicHeadContent($core)
+    public static function publicHeadContent()
     {
-        if (!$core->blog->settings->system->simply_favicon) {
+        if (!dcCore::app()->blog->settings->system->simply_favicon) {
             return null;
         }
 
-        $public_path = path::fullFromRoot($core->blog->settings->system->public_path, DC_ROOT) . '/favicon.';
-        $public_url  = $core->blog->url . $core->url->getBase('simplyFavicon') . '.';
+        $public_path = path::fullFromRoot(dcCore::app()->blog->settings->system->public_path, DC_ROOT) . '/favicon.';
+        $public_url  = dcCore::app()->blog->url . dcCore::app()->url->getBase('simplyFavicon') . '.';
 
         // ico : IE6
-        if (file_exists($public_path . 'ico') && '?' != substr($core->blog->url, -1)) {
+        if (file_exists($public_path . 'ico') && '?' != substr(dcCore::app()->blog->url, -1)) {
             echo
             '<link rel="SHORTCUT ICON" type="image/x-icon" href="' . $public_url . 'ico" />' . "\n";
         }

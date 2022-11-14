@@ -14,14 +14,14 @@ if (!defined('DC_CONTEXT_ADMIN')) {
     return;
 }
 
-$core->addBehavior('adminBlogPreferencesForm', ['adminSimplyFavicon', 'adminBlogPreferencesForm']);
-$core->addBehavior('adminBeforeBlogSettingsUpdate', ['adminSimplyFavicon', 'adminBeforeBlogSettingsUpdate']);
+dcCore::app()->addBehavior('adminBlogPreferencesFormV2', ['adminSimplyFavicon', 'adminBlogPreferencesForm']);
+dcCore::app()->addBehavior('adminBeforeBlogSettingsUpdate', ['adminSimplyFavicon', 'adminBeforeBlogSettingsUpdate']);
 
 class adminSimplyFavicon
 {
     public static $extensions = ['ico', 'png', 'bmp', 'gif', 'jpg', 'mng'];
 
-    public static function adminBlogPreferencesForm($core, $blog_settings)
+    public static function adminBlogPreferencesForm($blog_settings)
     {
         $exists = [];
         $path   = path::fullFromRoot((string) $blog_settings->system->public_path, DC_ROOT);

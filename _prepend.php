@@ -14,6 +14,6 @@ if (!defined('DC_RC_PATH')) {
     return;
 }
 
-$__autoload['publicSimplyFavicon'] = dirname(__FILE__) . '/_public.php';
+Clearbricks::lib()->autoload(['publicSimplyFavicon' => __DIR__ . '/_public.php']);
 
-$core->url->register('simplyFavicon', 'favicon', '^favicon.(.*?)$', ['publicSimplyFavicon', 'simplyFaviconUrl']);
+dcCore::app()->url->register('simplyFavicon', 'favicon', '^favicon.(.*?)$', ['publicSimplyFavicon', 'simplyFaviconUrl']);
