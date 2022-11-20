@@ -18,7 +18,7 @@ $this->registerModule(
     'Simply favicon',
     'Multi-agents favicon',
     'Jean-Christian Denis',
-    '2022.11.12',
+    '2022.11.20',
     [
         'requires'    => [['core', '2.24']],
         'permissions' => dcCore::app()->auth->makePermissions([

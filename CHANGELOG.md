@@ -5,6 +5,9 @@ dev
 - add test on blog pref form
 - fix public url test
 
+2022.11.20
+- fix compatibility with Dotclear 2.24 (required)
+
 2021.09.02
 - clean up code
 - add dcstore.xml pre-release file
