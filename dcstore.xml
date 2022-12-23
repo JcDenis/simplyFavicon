@@ -2,10 +2,10 @@
 <modules xmlns:da="http://dotaddict.org/da/">
   <module id="simplyFavicon">
     <name>Simply favicon</name>
-    <version>2022.11.20</version>
+    <version>2022.12.23</version>
     <author>Jean-Christian Denis</author>
     <desc>Multi-agents favicon</desc>
-    <file>https://github.com/JcDenis/simplyFavicon/releases/download/v2022.11.20/plugin-simplyFavicon.zip</file>
+    <file>https://github.com/JcDenis/simplyFavicon/releases/download/v2022.12.23/plugin-simplyFavicon.zip</file>
     <da:dcmin>2.24</da:dcmin>
     <da:details>http://plugins.dotaddict.org/dc2/details/simplyFavicon</da:details>
     <da:support>https://github.com/JcDenis/simplyFavicon</da:support>

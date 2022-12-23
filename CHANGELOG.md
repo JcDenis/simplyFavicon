@@ -1,9 +1,6 @@
-dev
-- fix PSR12 CS
-- update readme file
-- remove .lang.php file
-- add test on blog pref form
-- fix public url test
+2022.12.23
+- use anonymlous functions
+- code review (phpstan, php-cs-fixer)
 
 2022.11.20
 - fix compatibility with Dotclear 2.24 (required)
