@@ -16,7 +16,7 @@ if (!defined('DC_CONTEXT_ADMIN')) {
 
 dcCore::app()->addBehavior('adminBlogPreferencesFormV2', function ($blog_settings) {
     $exists = [];
-    $path   = path::fullFromRoot((string) $blog_settings->system->public_path, DC_ROOT);
+    $path   = path::fullFromRoot((string) $blog_settings->get('system')->get('public_path'), DC_ROOT);
     foreach (['ico', 'png', 'bmp', 'gif', 'jpg', 'mng'] as $ext) {
         if (file_exists($path . '/favicon.' . $ext)) {
             $exists[] = sprintf('<li title="%s">%s</li>', $path . '/favicon.' . $ext, 'favicon.' . $ext);
@@ -24,10 +24,10 @@ dcCore::app()->addBehavior('adminBlogPreferencesFormV2', function ($blog_setting
     }
 
     echo
-    '<div class="fieldset clear"><h4 id="simply_favicon_params">Favicon</h4>' .
+    '<div class="fieldset clear"><h4 id="simply_favicon_params">' . __('Favicon') . '</h4>' .
     '<div class="two-cols"><div class="col">' .
     '<p><label class="classic">' .
-    form::checkbox('simply_favicon', '1', (bool) $blog_settings->system->simply_favicon) .
+    form::checkbox('simply_favicon', '1', (bool) $blog_settings->get('system')->get('simply_favicon')) .
     __('Enable "Simply favicon" extension') . '</label></p>' .
     '<p class="form-note">' .
     __("You must place an image called favicon.png or .jpg or .ico into your blog's public directory.") .
@@ -41,5 +41,5 @@ dcCore::app()->addBehavior('adminBlogPreferencesFormV2', function ($blog_setting
 });
 
 dcCore::app()->addBehavior('adminBeforeBlogSettingsUpdate', function ($blog_settings) {
-    $blog_settings->system->put('simply_favicon', !empty($_POST['simply_favicon']));
+    $blog_settings->get('system')->put('simply_favicon', !empty($_POST['simply_favicon']));
 });

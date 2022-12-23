@@ -29,9 +29,9 @@ class publicSimplyFavicon extends dcUrlHandlers
 
     public static function simplyFaviconUrl($arg)
     {
-        $public_path = path::fullFromRoot(dcCore::app()->blog->settings->system->public_path, DC_ROOT);
+        $public_path = path::fullFromRoot(dcCore::app()->blog->settings->get('system')->get('public_path'), DC_ROOT);
 
-        if (dcCore::app()->blog->settings->system->simply_favicon
+        if (dcCore::app()->blog->settings->get('system')->get('simply_favicon')
             && !empty($arg)
             && array_key_exists($arg, self::$mimetypes)
             && file_exists($public_path . '/favicon.' . $arg)
@@ -48,11 +48,11 @@ class publicSimplyFavicon extends dcUrlHandlers
 
     public static function publicHeadContent()
     {
-        if (!dcCore::app()->blog->settings->system->simply_favicon) {
+        if (!dcCore::app()->blog->settings->get('system')->get('simply_favicon')) {
             return null;
         }
 
-        $public_path = path::fullFromRoot(dcCore::app()->blog->settings->system->public_path, DC_ROOT) . '/favicon.';
+        $public_path = path::fullFromRoot(dcCore::app()->blog->settings->get('system')->get('public_path'), DC_ROOT) . '/favicon.';
         $public_url  = dcCore::app()->blog->url . dcCore::app()->url->getBase('simplyFavicon') . '.';
 
         // ico : IE6
