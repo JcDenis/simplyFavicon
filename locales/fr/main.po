@@ -10,7 +10,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
-msgid "Enable \"Simply favicon\" extension"
+msgid "Enable \"%s\" extension"
 msgstr "Activer l'extension \"Simply favicon\""
 
 msgid "You must place an image called favicon.png or .jpg or .ico into your blog's public directory."
@@ -22,3 +22,5 @@ msgstr "Il n'y a pas de Favicon dans le répertoire public du blog."
 msgid "Current favicons:"
 msgstr "Favicons actuels :"
 
+msgid "Multi-agents favicon"
+msgstr "Favicon multi-agents"
