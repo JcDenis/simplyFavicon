@@ -1,3 +1,10 @@
+xxxx.xx.xx
+- require Dotclear 2.26
+- use PHP namespace
+- use new plugin structure
+- use new Form class
+- add icon url on blog pref
+
 2022.12.23
 - use anonymlous functions
 - code review (phpstan, php-cs-fixer)

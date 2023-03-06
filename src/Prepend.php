@@ -10,10 +10,35 @@
  * @copyright Jean-Christian Denis
  * @copyright GPL-2.0 https://www.gnu.org/licenses/gpl-2.0.html
  */
-if (!defined('DC_RC_PATH')) {
-    return;
+declare(strict_types=1);
+
+namespace Dotclear\Plugin\simplyFavicon;
+
+use dcCore;
+use dcNsProcess;
+
+class Prepend extends dcNsProcess
+{
+    public static function init(): bool
+    {
+        self::$init = true;
+
+        return self::$init;
+    }
+
+    public static function process(): bool
+    {
+        if (!self::$init) {
+            return false;
+        }
+
+        dcCore::app()->url->register(
+            'simplyFavicon',
+            'favicon',
+            '^favicon.(.*?)$',
+            [UrlHandler::class, 'simplyFaviconUrl']
+        );
+
+        return true;
+    }
 }
-
-Clearbricks::lib()->autoload(['publicSimplyFavicon' => __DIR__ . '/_public.php']);
-
-dcCore::app()->url->register('simplyFavicon', 'favicon', '^favicon.(.*?)$', ['publicSimplyFavicon', 'simplyFaviconUrl']);
