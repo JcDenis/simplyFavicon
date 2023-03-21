@@ -1,4 +1,4 @@
-xxxx.xx.xx
+2023.03.21
 - require Dotclear 2.26
 - use PHP namespace
 - use new plugin structure
