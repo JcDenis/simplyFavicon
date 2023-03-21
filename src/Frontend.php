@@ -33,9 +33,9 @@ class Frontend extends dcNsProcess
             return false;
         }
 
-        dcCore::app()->addBehavior('publicHeadContent', function () {
+        dcCore::app()->addBehavior('publicHeadContent', function (): void {
             if (!dcCore::app()->blog->settings->get('system')->get('simply_favicon')) {
-                return null;
+                return;
             }
 
             $public_path = path::fullFromRoot(dcCore::app()->blog->settings->get('system')->get('public_path'), DC_ROOT) . '/favicon.';
@@ -53,7 +53,7 @@ class Frontend extends dcNsProcess
                 '<link rel="icon" type="image/png" href="' . $public_url . 'png" />' . "\n";
             // all others
             } else {
-                foreach (Urlhandler::$mimetypes as $ext => $mime) {
+                foreach (UrlHandler::$mimetypes as $ext => $mime) {
                     if (in_array($ext, ['ico', 'png'])) {
                         continue;
                     }

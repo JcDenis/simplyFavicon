@@ -16,8 +16,7 @@ namespace Dotclear\Plugin\simplyFavicon;
 
 use dcCore;
 use dcNsProcess;
-use path;
-
+use dcSettings;
 use Dotclear\Helper\Html\Form\{
     Checkbox,
     Div,
@@ -25,6 +24,7 @@ use Dotclear\Helper\Html\Form\{
     Note,
     Para
 };
+use path;
 
 class Backend extends dcNsProcess
 {
@@ -42,7 +42,7 @@ class Backend extends dcNsProcess
         }
 
         dcCore::app()->addBehaviors([
-            'adminBlogPreferencesFormV2' => function ($blog_settings) {
+            'adminBlogPreferencesFormV2' => function (dcSettings $blog_settings): void {
                 $exists = [];
                 $path   = path::fullFromRoot((string) $blog_settings->get('system')->get('public_path'), DC_ROOT);
                 foreach (['ico', 'png', 'bmp', 'gif', 'jpg', 'mng'] as $ext) {
@@ -70,7 +70,7 @@ class Backend extends dcNsProcess
                 ) .
                 '</div></div><br class="clear" /></div>';
             },
-            'adminBeforeBlogSettingsUpdate' => function ($blog_settings) {
+            'adminBeforeBlogSettingsUpdate' => function (dcSettings $blog_settings): void {
                 $blog_settings->get('system')->put('simply_favicon', !empty($_POST['simply_favicon']));
             },
         ]);

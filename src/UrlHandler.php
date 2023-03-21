@@ -20,7 +20,7 @@ use path;
 
 class UrlHandler extends dcUrlHandlers
 {
-    public static $mimetypes = [
+    public static array $mimetypes = [
         'ico' => 'image/x-icon',
         'png' => 'image/png',
         'bmp' => 'image/bmp',
@@ -29,7 +29,7 @@ class UrlHandler extends dcUrlHandlers
         'mng' => 'video/x-mng',
     ];
 
-    public static function simplyFaviconUrl($arg)
+    public static function simplyFaviconUrl(string $arg): void
     {
         $public_path = path::fullFromRoot(dcCore::app()->blog->settings->get('system')->get('public_path'), DC_ROOT);
 
