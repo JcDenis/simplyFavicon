@@ -58,7 +58,7 @@ class Backend extends dcNsProcess
                 (new Div())->class('box')->items([
                     (new Para())->items([
                         (new Checkbox('simply_favicon', (bool) $blog_settings->get('system')->get('simply_favicon')))->value('1'),
-                        (new Label(__('Enable favorite icon')))->for('simply_favicon')->class('classic'),
+                        (new Label(__('Enable favorite icon'), Label::OUTSIDE_LABEL_AFTER))->for('simply_favicon')->class('classic'),
                     ]),
                     (new Note())->text(__("You must place an image called favicon.png or .jpg or .ico into your blog's public directory."))->class('form-note'),
                 ])->render() .
