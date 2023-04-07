@@ -16,7 +16,7 @@ namespace Dotclear\Plugin\simplyFavicon;
 
 use dcCore;
 use dcUrlHandlers;
-use path;
+use Dotclear\Helper\File\Path;
 
 class UrlHandler extends dcUrlHandlers
 {
@@ -31,7 +31,7 @@ class UrlHandler extends dcUrlHandlers
 
     public static function simplyFaviconUrl(string $arg): void
     {
-        $public_path = path::fullFromRoot(dcCore::app()->blog->settings->get('system')->get('public_path'), DC_ROOT);
+        $public_path = Path::fullFromRoot(dcCore::app()->blog->settings->get('system')->get('public_path'), DC_ROOT);
 
         if (dcCore::app()->blog->settings->get('system')->get('simply_favicon')
             && !empty($arg)

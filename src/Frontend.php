@@ -16,7 +16,7 @@ namespace Dotclear\Plugin\simplyFavicon;
 
 use dcCore;
 use dcNsProcess;
-use path;
+use Dotclear\Helper\File\Path;
 
 class Frontend extends dcNsProcess
 {
@@ -38,7 +38,7 @@ class Frontend extends dcNsProcess
                 return;
             }
 
-            $public_path = path::fullFromRoot(dcCore::app()->blog->settings->get('system')->get('public_path'), DC_ROOT) . '/favicon.';
+            $public_path = Path::fullFromRoot(dcCore::app()->blog->settings->get('system')->get('public_path'), DC_ROOT) . '/favicon.';
             $public_url  = dcCore::app()->blog->url . dcCore::app()->url->getBase('simplyFavicon') . '.';
 
             // ico : IE6
