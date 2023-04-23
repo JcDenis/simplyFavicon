@@ -43,6 +43,11 @@ class Backend extends dcNsProcess
 
         dcCore::app()->addBehaviors([
             'adminBlogPreferencesFormV2' => function (dcSettings $blog_settings): void {
+                // nullsafe
+                if (is_null(dcCore::app()->blog)) {
+                    return;
+                }
+
                 $exists = [];
                 $path   = Path::fullFromRoot((string) $blog_settings->get('system')->get('public_path'), DC_ROOT);
                 foreach (['ico', 'png', 'bmp', 'gif', 'jpg', 'mng'] as $ext) {

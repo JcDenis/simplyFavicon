@@ -34,7 +34,7 @@ class Frontend extends dcNsProcess
         }
 
         dcCore::app()->addBehavior('publicHeadContent', function (): void {
-            if (!dcCore::app()->blog->settings->get('system')->get('simply_favicon')) {
+            if (is_null(dcCore::app()->blog) || !dcCore::app()->blog->settings->get('system')->get('simply_favicon')) {
                 return;
             }
 

@@ -31,6 +31,11 @@ class UrlHandler extends dcUrlHandlers
 
     public static function simplyFaviconUrl(string $arg): void
     {
+        // nullsafe
+        if (is_null(dcCore::app()->blog)) {
+            return;
+        }
+
         $public_path = Path::fullFromRoot(dcCore::app()->blog->settings->get('system')->get('public_path'), DC_ROOT);
 
         if (dcCore::app()->blog->settings->get('system')->get('simply_favicon')
