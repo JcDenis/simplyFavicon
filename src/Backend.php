@@ -60,13 +60,22 @@ class Backend extends dcNsProcess
                 echo
                 '<div class="fieldset clear"><h4 id="simply_favicon_params">' . __('Favicon') . '</h4>' .
                 '<div class="two-cols"><div class="col">' .
-                (new Div())->class('box')->items([
-                    (new Para())->items([
-                        (new Checkbox('simply_favicon', (bool) $blog_settings->get('system')->get('simply_favicon')))->value('1'),
-                        (new Label(__('Enable favorite icon'), Label::OUTSIDE_LABEL_AFTER))->for('simply_favicon')->class('classic'),
-                    ]),
-                    (new Note())->text(__("You must place an image called favicon.png or .jpg or .ico into your blog's public directory."))->class('form-note'),
-                ])->render() .
+                (new Div())
+                    ->__call('class', ['box'])
+                    ->__call('items', [[
+                        (new Para())
+                            ->__call('items', [[
+                                (new Checkbox('simply_favicon', (bool) $blog_settings->get('system')->get('simply_favicon')))
+                                    ->__call('value', ['1']),
+                                (new Label(__('Enable favorite icon'), Label::OUTSIDE_LABEL_AFTER))
+                                    ->__call('for', ['simply_favicon'])
+                                    ->__call('class', ['classic']),
+                            ]]),
+                        (new Note())
+                            ->__call('text', [__("You must place an image called favicon.png or .jpg or .ico into your blog's public directory.")])
+                            ->__call('class', ['form-note']),
+                    ]])
+                    ->render() .
                 '</p></div><div class="col">' .
                 (
                     empty($exists) ?
