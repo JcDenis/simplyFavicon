@@ -1,3 +1,9 @@
+2023.04.23
+- require Dotclear 2.26
+- use latest dotclear namespace
+- remove magix
+- fix nullsafe warnings
+
 2023.03.21
 - require Dotclear 2.26
 - use PHP namespace
