@@ -1,3 +1,8 @@
+2023.07.29
+- require Dotclear 2.27
+- require PHP 7.4+
+- update to Dotclear 2.27-dev
+
 2023.04.23
 - require Dotclear 2.26
 - use latest dotclear namespace
