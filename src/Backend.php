@@ -56,7 +56,7 @@ class Backend extends Process
                 }
 
                 echo
-                '<div class="fieldset clear"><h4 id="simply_favicon_params">' . __('Favicon') . '</h4>' .
+                '<div class="fieldset clear"><h4 id="' . My::id() . '_params">' . __('Favicon') . '</h4>' .
                 '<div class="two-cols"><div class="col">' .
                 (new Div())
                     ->__call('class', ['box'])
