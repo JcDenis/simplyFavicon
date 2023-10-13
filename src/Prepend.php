@@ -1,22 +1,19 @@
 <?php
-/**
- * @brief simplyFavicon, a plugin for Dotclear 2
- *
- * @package Dotclear
- * @subpackage Plugin
- *
- * @author Jean-Christian Denis
- *
- * @copyright Jean-Christian Denis
- * @copyright GPL-2.0 https://www.gnu.org/licenses/gpl-2.0.html
- */
+
 declare(strict_types=1);
 
 namespace Dotclear\Plugin\simplyFavicon;
 
-use dcCore;
+use Dotclear\App;
 use Dotclear\Core\Process;
 
+/**
+ * @brief   simplyFavicon prepend class.
+ * @ingroup simplyFavicon
+ *
+ * @author      Jean-Christian Denis
+ * @copyright   GPL-2.0 https://www.gnu.org/licenses/gpl-2.0.html
+ */
 class Prepend extends Process
 {
     public static function init(): bool
@@ -30,11 +27,11 @@ class Prepend extends Process
             return false;
         }
 
-        dcCore::app()->url->register(
+        App::url()->register(
             'simplyFavicon',
             'favicon',
             '^favicon.(.*?)$',
-            [UrlHandler::class, 'simplyFaviconUrl']
+            UrlHandler::simplyFaviconUrl(...)
         );
 
         return true;

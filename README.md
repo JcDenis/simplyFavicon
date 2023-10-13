@@ -1,26 +1,23 @@
 # README
 
-[![Release](https://img.shields.io/badge/release-2023.08.13-a2cbe9.svg)](https://git.dotclear.watch/JcDenis/simplyFavicon/releases)
-[![Date](https://img.shields.io/badge/date-2023.08.13-c44d58.svg)](https://git.dotclear.watch/JcDenis/simplyFavicon/releases)
-[![Dotclear](https://img.shields.io/badge/dotclear-v2.27-137bbb.svg)](https://fr.dotclear.org/download)
+[![Release](https://img.shields.io/badge/release-2023.10.13-a2cbe9.svg)](https://git.dotclear.watch/JcDenis/simplyFavicon/releases)
+![Date](https://img.shields.io/badge/date-2023.10.13-c44d58.svg)
+[![Dotclear](https://img.shields.io/badge/dotclear-v2.28-137bbb.svg)](https://fr.dotclear.org/download)
 [![Dotaddict](https://img.shields.io/badge/dotaddict-official-9ac123.svg)](https://plugins.dotaddict.org/dc2/details/simplyFavicon)
 [![License](https://img.shields.io/github/license/JcDenis/simplyFavicon)](https://git.dotclear.watch/JcDenis/simplyFavicon/blob/master/LICENSE)
 
-## WHAT IS simplyFavicon ?
+## ABOUT
 
-_simplyFavicon_ is a plugin for the open-source 
-web publishing software called Dotclear.
+_pacKman_ is a plugin for the open-source web publishing software called [Dotclear](https://www.dotclear.org).
 
-It adds a favicon to your blog.
+> Add a favicon to your blog.
 
 ## REQUIREMENTS
 
-_simplyFavicon_ requires: 
-
+* Dotclear 2.28
+* PHP 8.1+
+* A readable public directory
 * Administrator permissions
-* Dotclear 2.27
-* PHP 7.4+
-* A readable public directory.
 
 ## USAGE
 
@@ -33,12 +30,13 @@ simplyFavicon add required code to public page to show favicon on browser.
 
 ## LINKS
 
-* License : [GNU GPL v2](https://www.gnu.org/licenses/old-licenses/lgpl-2.0.html)
-* Source & contribution : [Gitea Page](https://git.dotclear.watch/JcDenis/simplyFavicon) or [GitHub Page](https://github.com/JcDenis/simplyFavicon)
-* Packages & details : [Gitea Page](https://git.dotclear.watch/JcDenis/simplyFavicon/releases) or [Dotaddict Page](https://plugins.dotaddict.org/dc2/details/simplyFavicon)
+* [License](https://git.dotclear.watch/JcDenis/simplyFavicon/src/branch/master/LICENSE)
+* [Packages & details](https://git.dotclear.watch/JcDenis/simplyFavicon/releases) (or on [Dotaddict](https://plugins.dotaddict.org/dc2/details/simplyFavicon))
+* [Sources & contributions](https://git.dotclear.watch/JcDenis/simplyFavicon) (or on [GitHub](https://github.com/JcDenis/simplyFavicon))
+* [Issues & security](https://git.dotclear.watch/JcDenis/simplyFavicon/issues) (or on [GitHub](https://github.com/JcDenis/simplyFavicon/issues))
 
 ## CONTRIBUTORS
 
-* Jean-Christian Denis
+* Jean-Christian Denis (author)
 
 You are welcome to contribute to this code.

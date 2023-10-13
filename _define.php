@@ -10,9 +10,19 @@
  * @copyright Jean-Christian Denis
  * @copyright GPL-2.0 https://www.gnu.org/licenses/gpl-2.0.html
  */
-if (!defined('DC_RC_PATH')) {
-    return;
-}
+/*
+ * @file
+ * @brief       The simplyFavicon pacKman definition
+ * @ingroup     simplyFavicon
+ *
+ * @defgroup    simplyFavicon Plugin simplyFavicon.
+ *
+ * Multi-agents favicon.
+ *
+ * @author      Jean-Christian Denis
+ * @copyright   GPL-2.0 https://www.gnu.org/licenses/gpl-2.0.html
+ */
+declare(strict_types=1);
 
 $this->registerModule(
     'Simply favicon',
@@ -20,11 +30,9 @@ $this->registerModule(
     'Jean-Christian Denis',
     '2023.08.13',
     [
-        'requires'    => [['core', '2.27']],
-        'permissions' => dcCore::app()->auth->makePermissions([
-            dcCore::app()->auth::PERMISSION_ADMIN,
-        ]),
-        'settings' => [
+        'requires'    => [['core', '2.28']],
+        'permissions' => 'My',
+        'settings'    => [
             'blog' => '#params.' . basename(__DIR__) . '_params',
         ],
         'type'       => 'plugin',

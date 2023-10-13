@@ -1,25 +1,27 @@
 <?php
-/**
- * @brief simplyFavicon, a plugin for Dotclear 2
- *
- * @package Dotclear
- * @subpackage Plugin
- *
- * @author Jean-Christian Denis
- *
- * @copyright Jean-Christian Denis
- * @copyright GPL-2.0 https://www.gnu.org/licenses/gpl-2.0.html
- */
+
 declare(strict_types=1);
 
 namespace Dotclear\Plugin\simplyFavicon;
 
-use dcCore;
-use dcUrlHandlers;
+use Dotclear\App;
+use Dotclear\Core\Frontend\Url;
 use Dotclear\Helper\File\Path;
 
-class UrlHandler extends dcUrlHandlers
+/**
+ * @brief   simplyFavicon frontend URL handler.
+ * @ingroup simplyFavicon
+ *
+ * @author      Jean-Christian Denis
+ * @copyright   GPL-2.0 https://www.gnu.org/licenses/gpl-2.0.html
+ */
+class UrlHandler extends Url
 {
+    /**
+     * Mime types.
+     *
+     * @var     array<string,string> $mimetypes
+     */
     public static array $mimetypes = [
         'ico' => 'image/x-icon',
         'png' => 'image/png',
@@ -31,14 +33,13 @@ class UrlHandler extends dcUrlHandlers
 
     public static function simplyFaviconUrl(string $arg): void
     {
-        // nullsafe
-        if (is_null(dcCore::app()->blog)) {
+        if (!App::blog()->isDefined()) {
             return;
         }
 
-        $public_path = Path::fullFromRoot(dcCore::app()->blog->settings->get('system')->get('public_path'), DC_ROOT);
+        $public_path = Path::fullFromRoot(App::blog()->settings()->get('system')->get('public_path'), App::config()->dotclearRoot());
 
-        if (dcCore::app()->blog->settings->get('system')->get('simply_favicon')
+        if (App::blog()->settings()->get('system')->get('simply_favicon')
             && !empty($arg)
             && array_key_exists($arg, self::$mimetypes)
             && file_exists($public_path . '/favicon.' . $arg)

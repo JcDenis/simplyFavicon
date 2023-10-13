@@ -1,21 +1,11 @@
 <?php
-/**
- * @brief simplyFavicon, a plugin for Dotclear 2
- *
- * @package Dotclear
- * @subpackage Plugin
- *
- * @author Jean-Christian Denis
- *
- * @copyright Jean-Christian Denis
- * @copyright GPL-2.0 https://www.gnu.org/licenses/gpl-2.0.html
- */
+
 declare(strict_types=1);
 
 namespace Dotclear\Plugin\simplyFavicon;
 
-use dcCore;
-use dcSettings;
+use Dotclear\App;
+use Dotclear\Core\BlogSettings;
 use Dotclear\Core\Process;
 use Dotclear\Helper\File\Path;
 use Dotclear\Helper\Html\Form\{
@@ -26,6 +16,13 @@ use Dotclear\Helper\Html\Form\{
     Para
 };
 
+/**
+ * @brief   simplyFavicon backend class.
+ * @ingroup simplyFavicon
+ *
+ * @author      Jean-Christian Denis
+ * @copyright   GPL-2.0 https://www.gnu.org/licenses/gpl-2.0.html
+ */
 class Backend extends Process
 {
     public static function init(): bool
@@ -39,18 +36,17 @@ class Backend extends Process
             return false;
         }
 
-        dcCore::app()->addBehaviors([
-            'adminBlogPreferencesFormV2' => function (dcSettings $blog_settings): void {
-                // nullsafe
-                if (is_null(dcCore::app()->blog)) {
+        App::behavior()->addBehaviors([
+            'adminBlogPreferencesFormV2' => function (BlogSettings $blog_settings): void {
+                if (!App::blog()->isDefined()) {
                     return;
                 }
 
                 $exists = [];
-                $path   = Path::fullFromRoot((string) $blog_settings->get('system')->get('public_path'), DC_ROOT);
+                $path   = Path::fullFromRoot((string) $blog_settings->get('system')->get('public_path'), App::config()->dotclearRoot());
                 foreach (['ico', 'png', 'bmp', 'gif', 'jpg', 'mng'] as $ext) {
                     if (file_exists($path . '/favicon.' . $ext)) {
-                        $url      = dcCore::app()->blog->url . dcCore::app()->url->getURLFor('simplyFavicon', $ext);
+                        $url      = App::blog()->url() . App::url()->getURLFor('simplyFavicon', $ext);
                         $exists[] = '<li><a href="' . $url . '">' . $url . '</a></li>';
                     }
                 }
@@ -82,7 +78,7 @@ class Backend extends Process
                 ) .
                 '</div></div><br class="clear" /></div>';
             },
-            'adminBeforeBlogSettingsUpdate' => function (dcSettings $blog_settings): void {
+            'adminBeforeBlogSettingsUpdate' => function (BlogSettings $blog_settings): void {
                 $blog_settings->get('system')->put('simply_favicon', !empty($_POST['simply_favicon']));
             },
         ]);

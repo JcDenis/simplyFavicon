@@ -1,3 +1,9 @@
+simplyFavicon 2023.10.13
+===========================================================
+* Require Dotclear 2.28
+* Require PHP 8.1
+* Upgrade to Dotclear 2.28
+
 simplyFavicon 2023.08.13
 ===========================================================
 * Require Dotclear 2.27
