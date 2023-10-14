@@ -1,4 +1,4 @@
-simplyFavicon 2023.10.13
+simplyFavicon 2023.10.14
 ===========================================================
 * Require Dotclear 2.28
 * Require PHP 8.1
