@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace Dotclear\Plugin\simplyFavicon;
 
 use Dotclear\App;
-use Dotclear\Core\BlogSettings;
 use Dotclear\Core\Process;
 use Dotclear\Helper\File\Path;
 use Dotclear\Helper\Html\Form\{
@@ -15,10 +14,11 @@ use Dotclear\Helper\Html\Form\{
     Note,
     Para
 };
+use Dotclear\Interface\Core\BlogSettingsInterface;
 
 /**
- * @brief   simplyFavicon backend class.
- * @ingroup simplyFavicon
+ * @brief       simplyFavicon backend class.
+ * @ingroup     simplyFavicon
  *
  * @author      Jean-Christian Denis
  * @copyright   GPL-2.0 https://www.gnu.org/licenses/gpl-2.0.html
@@ -37,7 +37,7 @@ class Backend extends Process
         }
 
         App::behavior()->addBehaviors([
-            'adminBlogPreferencesFormV2' => function (BlogSettings $blog_settings): void {
+            'adminBlogPreferencesFormV2' => function (BlogSettingsInterface $blog_settings): void {
                 if (!App::blog()->isDefined()) {
                     return;
                 }
@@ -78,7 +78,7 @@ class Backend extends Process
                 ) .
                 '</div></div><br class="clear" /></div>';
             },
-            'adminBeforeBlogSettingsUpdate' => function (BlogSettings $blog_settings): void {
+            'adminBeforeBlogSettingsUpdate' => function (BlogSettingsInterface $blog_settings): void {
                 $blog_settings->get('system')->put('simply_favicon', !empty($_POST['simply_favicon']));
             },
         ]);

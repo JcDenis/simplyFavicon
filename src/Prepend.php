@@ -8,8 +8,8 @@ use Dotclear\App;
 use Dotclear\Core\Process;
 
 /**
- * @brief   simplyFavicon prepend class.
- * @ingroup simplyFavicon
+ * @brief       simplyFavicon prepend class.
+ * @ingroup     simplyFavicon
  *
  * @author      Jean-Christian Denis
  * @copyright   GPL-2.0 https://www.gnu.org/licenses/gpl-2.0.html

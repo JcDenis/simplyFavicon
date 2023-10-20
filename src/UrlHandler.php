@@ -9,8 +9,8 @@ use Dotclear\Core\Frontend\Url;
 use Dotclear\Helper\File\Path;
 
 /**
- * @brief   simplyFavicon frontend URL handler.
- * @ingroup simplyFavicon
+ * @brief       simplyFavicon frontend URL handler.
+ * @ingroup     simplyFavicon
  *
  * @author      Jean-Christian Denis
  * @copyright   GPL-2.0 https://www.gnu.org/licenses/gpl-2.0.html

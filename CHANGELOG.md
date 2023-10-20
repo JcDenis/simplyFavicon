@@ -1,3 +1,10 @@
+simplyFavicon 2023.10.20
+===========================================================
+* Require Dotclear 2.28
+* Require PHP 8.1
+* Fix use of interface
+* Use default permissions
+
 simplyFavicon 2023.10.14
 ===========================================================
 * Require Dotclear 2.28
