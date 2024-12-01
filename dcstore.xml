@@ -5,7 +5,7 @@
     <version>2023.10.20</version>
     <author>Jean-Christian Denis</author>
     <desc>Multi-agents favicon</desc>
-    <file>https://git.dotclear.watch/JcDenis/simplyFavicon/releases/download/v2023.10.20/plugin-simplyFavicon.zip</file>
+    <file>https://github.com/JcDenis/simplyFavicon/releases/download/v2023.10.20/plugin-simplyFavicon.zip</file>
     <da:dcmin>2.28</da:dcmin>
     <da:details>https://git.dotclear.watch/JcDenis/simplyFavicon/src/branch/master/README.md</da:details>
     <da:support>https://git.dotclear.watch/JcDenis/simplyFavicon/issues</da:support>
