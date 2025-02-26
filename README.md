@@ -1,10 +1,10 @@
 # README
 
-[![Release](https://img.shields.io/badge/release-2023.10.20-a2cbe9.svg)](https://git.dotclear.watch/JcDenis/simplyFavicon/releases)
+[![Release](https://img.shields.io/badge/release-2023.10.20-a2cbe9.svg)](https://github.com/JcDenis/simplyFavicon/releases)
 ![Date](https://img.shields.io/badge/date-2023.10.20-c44d58.svg)
 [![Dotclear](https://img.shields.io/badge/dotclear-v2.28-137bbb.svg)](https://fr.dotclear.org/download)
 [![Dotaddict](https://img.shields.io/badge/dotaddict-official-9ac123.svg)](https://plugins.dotaddict.org/dc2/details/simplyFavicon)
-[![License](https://img.shields.io/github/license/JcDenis/simplyFavicon)](https://git.dotclear.watch/JcDenis/simplyFavicon/blob/master/LICENSE)
+[![License](https://img.shields.io/github/license/JcDenis/simplyFavicon)](https://github.com/JcDenis/simplyFavicon/blob/master/LICENSE)
 
 ## ABOUT
 
@@ -30,10 +30,10 @@ simplyFavicon add required code to public page to show favicon on browser.
 
 ## LINKS
 
-* [License](https://git.dotclear.watch/JcDenis/simplyFavicon/src/branch/master/LICENSE)
-* [Packages & details](https://git.dotclear.watch/JcDenis/simplyFavicon/releases) (or on [Dotaddict](https://plugins.dotaddict.org/dc2/details/simplyFavicon))
-* [Sources & contributions](https://git.dotclear.watch/JcDenis/simplyFavicon) (or on [GitHub](https://github.com/JcDenis/simplyFavicon))
-* [Issues & security](https://git.dotclear.watch/JcDenis/simplyFavicon/issues) (or on [GitHub](https://github.com/JcDenis/simplyFavicon/issues))
+* [License](https://github.com/JcDenis/simplyFavicon/src/branch/master/LICENSE)
+* [Packages & details](https://github.com/JcDenis/simplyFavicon/releases) (or on [Dotaddict](https://plugins.dotaddict.org/dc2/details/simplyFavicon))
+* [Sources & contributions](https://github.com/JcDenis/simplyFavicon)
+* [Issues & security](https://github.com/JcDenis/simplyFavicon/issues)
 
 ## CONTRIBUTORS
 
