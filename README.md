@@ -30,7 +30,7 @@ simplyFavicon add required code to public page to show favicon on browser.
 
 ## LINKS
 
-* [License](https://github.com/JcDenis/simplyFavicon/src/branch/master/LICENSE)
+* [License](https://github.com/JcDenis/simplyFavicon/blob/master/LICENSE)
 * [Packages & details](https://github.com/JcDenis/simplyFavicon/releases) (or on [Dotaddict](https://plugins.dotaddict.org/dc2/details/simplyFavicon))
 * [Sources & contributions](https://github.com/JcDenis/simplyFavicon)
 * [Issues & security](https://github.com/JcDenis/simplyFavicon/issues)
