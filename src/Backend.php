@@ -10,9 +10,16 @@ use Dotclear\Helper\File\Path;
 use Dotclear\Helper\Html\Form\{
     Checkbox,
     Div,
+    Fieldset,
     Label,
+    Legend,
+    Li,
+    Link,
+    None,
     Note,
-    Para
+    Para,
+    Text,
+    Ul
 };
 use Dotclear\Interface\Core\BlogSettingsInterface;
 
@@ -47,36 +54,49 @@ class Backend extends Process
                 foreach (['ico', 'png', 'bmp', 'gif', 'jpg', 'mng'] as $ext) {
                     if (file_exists($path . '/favicon.' . $ext)) {
                         $url      = App::blog()->url() . App::url()->getURLFor('simplyFavicon', $ext);
-                        $exists[] = '<li><a href="' . $url . '">' . $url . '</a></li>';
+                        $exists[] = (new Li())
+                            ->items([
+                                (new Link())
+                                    ->href($url)
+                                    ->text($url)
+                            ]);
                     }
                 }
 
-                echo
-                '<div class="fieldset clear"><h4 id="' . My::id() . '_params">' . __('Favicon') . '</h4>' .
-                '<div class="two-cols"><div class="col">' .
-                (new Div())
-                    ->__call('class', ['box'])
-                    ->__call('items', [[
-                        (new Para())
-                            ->__call('items', [[
-                                (new Checkbox('simply_favicon', (bool) $blog_settings->get('system')->get('simply_favicon')))
-                                    ->__call('value', ['1']),
-                                (new Label(__('Enable favorite icon'), Label::OUTSIDE_LABEL_AFTER))
-                                    ->__call('for', ['simply_favicon'])
-                                    ->__call('class', ['classic']),
-                            ]]),
-                        (new Note())
-                            ->__call('text', [__("You must place an image called favicon.png or .jpg or .ico into your blog's public directory.")])
-                            ->__call('class', ['form-note']),
-                    ]])
-                    ->render() .
-                '</p></div><div class="col">' .
-                (
-                    empty($exists) ?
-                    '<p>' . __('There are no favicon in blog public directory') . '</p>' :
-                    '<p>' . __('Current favicons:') . '</p><ul class="nice">' . implode($exists) . '</ul>'
-                ) .
-                '</div></div><br class="clear" /></div>';
+                echo (new Fieldset(My::id() . '_params'))
+                    ->legend((new Legend(__('Favicon'))))
+                    ->items([
+                        (new Div())
+                            ->class('two-boxes')
+                            ->items([
+                                (new Para())
+                                    ->items([
+                                        (new Checkbox('simply_favicon', (bool) $blog_settings->get('system')->get('simply_favicon')))
+                                            ->value('1'),
+                                        (new Label(__('Enable favorite icon'), Label::OUTSIDE_LABEL_AFTER))
+                                            ->for('simply_favicon')
+                                            ->class('classic'),
+                                    ]),
+                                (new Note())
+                                    ->text(__("You must place an image called favicon.png or .jpg or .ico into your blog's public directory."))
+                                    ->class('form-note'),
+                            ]),
+                        (new Div())
+                            ->class('box')
+                            ->items([
+                                (empty($exists) ? (new Text('p', __('There are no favicon in blog public directory'))) :
+                                    (new Div())
+                                        ->items([
+                                            (new Text('p', __('Current favicons:'))),
+                                            (new Ul())
+                                                ->class('nice')
+                                                ->items($exists),
+                                        ])
+                                )
+                            ]),
+
+                    ])
+                    ->render();
             },
             'adminBeforeBlogSettingsUpdate' => function (BlogSettingsInterface $blog_settings): void {
                 $blog_settings->get('system')->put('simply_favicon', !empty($_POST['simply_favicon']));
