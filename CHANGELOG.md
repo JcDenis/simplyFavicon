@@ -1,3 +1,10 @@
+simplyFavicon 2025.03.04
+===========================================================
+* Require Dotclear 2.33
+* Require PHP 8.1
+* Use Helper\Form
+* Code review
+
 simplyFavicon 2025.03.02
 ===========================================================
 * Require Dotclear 2.28
