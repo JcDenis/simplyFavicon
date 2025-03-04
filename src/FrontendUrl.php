@@ -15,22 +15,8 @@ use Dotclear\Helper\File\Path;
  * @author      Jean-Christian Denis
  * @copyright   GPL-2.0 https://www.gnu.org/licenses/gpl-2.0.html
  */
-class UrlHandler extends Url
+class FrontendUrl extends Url
 {
-    /**
-     * Mime types.
-     *
-     * @var     array<string,string> $mimetypes
-     */
-    public static array $mimetypes = [
-        'ico' => 'image/x-icon',
-        'png' => 'image/png',
-        'bmp' => 'image/bmp',
-        'gif' => 'image/gif',
-        'jpg' => 'image/jpeg',
-        'mng' => 'video/x-mng',
-    ];
-
     public static function simplyFaviconUrl(string $arg): void
     {
         if (!App::blog()->isDefined()) {
@@ -41,10 +27,10 @@ class UrlHandler extends Url
 
         if (App::blog()->settings()->get('system')->get('simply_favicon')
             && !empty($arg)
-            && array_key_exists($arg, self::$mimetypes)
+            && array_key_exists($arg, My::MIME_TYPES)
             && file_exists($public_path . '/favicon.' . $arg)
         ) {
-            header('Content-Type: ' . self::$mimetypes[$arg] . ';');
+            header('Content-Type: ' . My::MIME_TYPES[$arg] . ';');
             readfile($public_path . '/favicon.' . $arg);
             exit;
         }

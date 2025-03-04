@@ -15,5 +15,19 @@ use Dotclear\Module\MyPlugin;
  */
 class My extends MyPlugin
 {
+    /**
+     * Mime types.
+     *
+     * @var     array<string, string> MIME_TYPES
+     */
+    public const MIME_TYPES = [
+        'ico' => 'image/x-icon',
+        'png' => 'image/png',
+        'bmp' => 'image/bmp',
+        'gif' => 'image/gif',
+        'jpg' => 'image/jpeg',
+        'mng' => 'video/x-mng',
+    ];
+
     // Use default permissions
 }

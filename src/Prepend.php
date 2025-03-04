@@ -30,8 +30,8 @@ class Prepend extends Process
         App::url()->register(
             'simplyFavicon',
             'favicon',
-            '^favicon.(.*?)$',
-            UrlHandler::simplyFaviconUrl(...)
+            '^favicon.(' . implode('|', array_keys(My::MIME_TYPES)) . ')$',
+            FrontendUrl::simplyFaviconUrl(...)
         );
 
         return true;

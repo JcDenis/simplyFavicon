@@ -48,7 +48,7 @@ class Frontend extends Process
                 '<link rel="icon" type="image/png" href="' . $public_url . 'png" />' . "\n";
                 // all others
             } else {
-                foreach (UrlHandler::$mimetypes as $ext => $mime) {
+                foreach (My::MIME_TYPES as $ext => $mime) {
                     if (in_array($ext, ['ico', 'png'])) {
                         continue;
                     }
