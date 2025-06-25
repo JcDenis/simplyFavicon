@@ -1,3 +1,8 @@
+simplyFavicon 2025.06.26
+===========================================================
+* Add icon
+* Standardize backend blocs
+
 simplyFavicon 2025.03.04
 ===========================================================
 * Require Dotclear 2.33
