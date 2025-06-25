@@ -11,6 +11,7 @@ use Dotclear\Helper\Html\Form\{
     Checkbox,
     Div,
     Fieldset,
+    Img,
     Label,
     Legend,
     Li,
@@ -64,7 +65,7 @@ class Backend extends Process
                 }
 
                 echo (new Fieldset(My::id() . '_params'))
-                    ->legend((new Legend(__('Favicon'))))
+                    ->legend((new Legend((new Img(My::icons()[0]))->class('icon-small')->render() . ' ' . __('Favicon'))))
                     ->items([
                         (new Div())
                             ->class('two-boxes')
