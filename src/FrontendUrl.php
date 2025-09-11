@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace Dotclear\Plugin\simplyFavicon;
 
 use Dotclear\App;
-use Dotclear\Core\Frontend\Url;
 use Dotclear\Helper\File\Path;
 
 /**
@@ -15,7 +14,7 @@ use Dotclear\Helper\File\Path;
  * @author      Jean-Christian Denis
  * @copyright   GPL-2.0 https://www.gnu.org/licenses/gpl-2.0.html
  */
-class FrontendUrl extends Url
+class FrontendUrl
 {
     public static function simplyFaviconUrl(string $arg): void
     {
@@ -35,6 +34,6 @@ class FrontendUrl extends Url
             exit;
         }
 
-        self::p404();
+        App::url()::p404();
     }
 }
