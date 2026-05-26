@@ -38,28 +38,21 @@ class Frontend
             $public_path = Path::fullFromRoot(App::blog()->settings()->get('system')->get('public_path'), App::config()->dotclearRoot()) . '/favicon.';
             $public_url  = App::blog()->url() . App::url()->getBase('simplyFavicon') . '.';
 
-            // ico : IE6
-            if (file_exists($public_path . 'ico') && '?' != substr(App::blog()->url(), -1)) {
-                echo
-                '<link rel="SHORTCUT ICON" type="image/x-icon" href="' . $public_url . 'ico" />' . "\n";
-            }
-            // png: apple and others
-            if (file_exists($public_path . 'png')) {
-                echo
-                '<link rel="apple-touch-icon" href="' . $public_url . 'png" />' . "\n" .
-                '<link rel="icon" type="image/png" href="' . $public_url . 'png" />' . "\n";
-                // all others
-            } else {
-                foreach (My::MIME_TYPES as $ext => $mime) {
-                    if (in_array($ext, ['ico', 'png'])) {
-                        continue;
-                    }
-                    if (file_exists($public_path . $ext)) {
+            foreach (My::MIME_TYPES as $ext => $mime) {
+                if (file_exists($public_path . $ext)) {
+                    if ($ext == 'ico') {
                         echo
-                        '<link rel="icon" type="' . $mime . '" href="' . $public_url . $ext . '" />' . "\n";
-
-                        break;
+                        '<link rel="SHORTCUT ICON" type="image/x-icon" href="' . $public_url . 'ico">' . "\n";
+                    } elseif ($ext == 'png') {
+                        echo
+                        '<link rel="apple-touch-icon" type="image/png" href="' . $public_url . 'png">' . "\n" .
+                        '<link rel="alternate icon" type="image/png" href="' . $public_url . 'png">' . "\n";
                     }
+
+                    echo
+                    '<link rel="icon" type="' . $mime . '" href="' . $public_url . $ext . '">' . "\n";
+
+                    break;
                 }
             }
         });
