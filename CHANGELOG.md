@@ -1,3 +1,8 @@
+simplyFavicon 2026.05.25
+===========================================================
+* Try to fix some browser icon HTML tags
+* Fix translation
+
 simplyFavicon 2025.09.11
 ===========================================================
 * Bump Dotclear from 2.33 to 2.36
