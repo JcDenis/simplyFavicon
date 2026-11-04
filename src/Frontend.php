@@ -35,7 +35,7 @@ class Frontend
                 return;
             }
 
-            $public_path = Path::fullFromRoot(App::blog()->settings()->get('system')->get('public_path'), App::config()->dotclearRoot()) . '/favicon.';
+            $public_path = Path::fullFromRoot(App::blog()->settings()->get('system')->getStr('public_path', false), App::config()->dotclearRoot()) . '/favicon.';
             $public_url  = App::blog()->url() . App::url()->getBase('simplyFavicon') . '.';
 
             foreach (My::MIME_TYPES as $ext => $mime) {

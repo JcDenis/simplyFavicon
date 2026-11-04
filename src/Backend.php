@@ -51,7 +51,7 @@ class Backend
                 }
 
                 $exists = [];
-                $path   = Path::fullFromRoot((string) $blog_settings->get('system')->get('public_path'), App::config()->dotclearRoot());
+                $path   = Path::fullFromRoot($blog_settings->get('system')->getStr('public_path', false), App::config()->dotclearRoot());
                 foreach (['ico', 'png', 'bmp', 'gif', 'jpg', 'mng'] as $ext) {
                     if (file_exists($path . '/favicon.' . $ext)) {
                         $url      = App::blog()->url() . App::url()->getURLFor('simplyFavicon', $ext);

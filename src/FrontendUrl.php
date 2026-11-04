@@ -22,7 +22,7 @@ class FrontendUrl
             return;
         }
 
-        $public_path = Path::fullFromRoot(App::blog()->settings()->get('system')->get('public_path'), App::config()->dotclearRoot());
+        $public_path = Path::fullFromRoot(App::blog()->settings()->get('system')->getStr('public_path', false), App::config()->dotclearRoot());
 
         if (App::blog()->settings()->get('system')->get('simply_favicon')
             && !empty($arg)
