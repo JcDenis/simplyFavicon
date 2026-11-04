@@ -2,7 +2,7 @@
 
 [![Release](https://img.shields.io/github/v/release/jcdenis/simplyFavicon?color=lightblue)](https://github.com/JcDenis/simplyFavicon/releases)
 ![Date](https://img.shields.io/github/release-date/jcdenis/simplyFavicon?color=red)
-[![Dotclear](https://img.shields.io/badge/dotclear-v2.36-137bbb.svg)](https://fr.dotclear.org/download)
+[![Dotclear](https://img.shields.io/badge/dotclear-v2.39-137bbb.svg)](https://fr.dotclear.org/download)
 [![Repository](https://img.shields.io/badge/repository-official-9ac123.svg)](https://dotclear.org/plugin/detail/simplyFavicon)
 [![License](https://img.shields.io/github/license/jcdenis/simplyFavicon?color=white)](https://github.com/JcDenis/simplyFavicon/blob/master/LICENSE)
 
@@ -14,7 +14,7 @@ _simplyFavicon_ is a plugin for the open-source web publishing software called [
 
 ## REQUIREMENTS
 
-* Dotclear 2.36
+* Dotclear 2.39
 * PHP 8.1+
 * A readable public directory
 * Dotclear admin permissions

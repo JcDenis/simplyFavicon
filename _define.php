@@ -13,13 +13,17 @@
  */
 declare(strict_types=1);
 
+if (!isset($this) || !is_object($this) || !method_exists($this, 'registerModule') || !isset($this->id) || !is_string($this->id)) {
+    return;
+}
+
 $this->registerModule(
     'Simply favicon',
     'Multi-agents favicon',
     'Jean-Christian Denis',
     '2026.05.25',
     [
-        'requires'    => [['core', '2.36']],
+        'requires'    => [['core', '2.39']],
         'permissions' => 'My',
         'settings'    => ['blog' => '#params.' . $this->id . '_params'],
         'type'        => 'plugin',
