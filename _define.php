@@ -21,7 +21,7 @@ $this->registerModule(
     'Simply favicon',
     'Multi-agents favicon',
     'Jean-Christian Denis',
-    '2026.11.05',
+    '2026.11.06',
     [
         'requires'    => [['core', '2.39']],
         'permissions' => 'My',
