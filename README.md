@@ -38,5 +38,6 @@ simplyFavicon add required code to public page to show favicon on browser.
 ## CONTRIBUTORS
 
 * Jean-Christian Denis (author)
+* Claude (AI assistant by Anthropic)
 
 You are welcome to contribute to this code.
