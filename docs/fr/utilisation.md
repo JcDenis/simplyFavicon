@@ -21,29 +21,28 @@ Le nom du fichier doit être exactement `favicon`, suivi de l'extension. Les for
 
 1. Allez dans « Paramètres du blog ».
 2. Ouvrez « Paramètres des plugins pour ce blog ».
-3. Dans la section « Favicon », cochez « Activer l'icône de favori ».
+3. Dans la section « Favicon », cochez « Activer la favicon du blog ».
 4. Enregistrez.
 
-Tant qu'aucune image n'est déposée, la section vous le dit : « Il n'y a pas de Favicon dans le répertoire public du blog. ».
+Tant qu'aucune image n'est déposée, la section vous le dit : « Il n'y a pas de favicon dans le répertoire public du blog. ».
 
 ![Réglage sans image déposée](img/reglages-sans-favicon.png)
 
-Quand des images sont présentes, la section les liste sous « Favicons actuels : ». Chaque lien ouvre l'image telle que les visiteurs la reçoivent.
+Quand des images sont présentes, la section les liste sous « Favicons présentes : ». Chaque lien ouvre l'image telle que les visiteurs la reçoivent.
 
 ![Réglage avec deux images déposées](img/reglages-avec-favicon.png)
 
 ## Ce que le plugin ajoute aux pages
 
-Le plugin ajoute des balises `<link>` dans l'en-tête de chaque page publique du blog. Il ne retient qu'une seule image : le premier fichier trouvé dans cet ordre : `ico`, `png`, `bmp`, `gif`, `jpg`, `mng`.
+Le plugin ajoute des balises `<link>` dans l'en-tête de chaque page publique du blog, une pour chaque image présente. Le navigateur choisit celle qu'il sait afficher.
 
-* Pour un fichier `ico`, il déclare l'icône de raccourci.
-* Pour un fichier `png`, il déclare aussi l'icône pour les appareils d'Apple (`apple-touch-icon`).
+* Chaque image est déclarée comme icône du blog (`rel="icon"`).
+* Un fichier `png` est aussi déclaré comme icône pour les appareils d'Apple (`apple-touch-icon`).
 
 Les images sont servies à l'adresse du blog, par exemple `…/index.php/favicon.png` selon la configuration de votre site.
 
 ## Bon à savoir
 
-* Si vous avez à la fois un `favicon.ico` et un `favicon.png`, seul le `ico` est déclaré dans l'en-tête des pages.
-* Le message du réglage ne parle que de `png`, `jpg` et `ico`, mais les autres formats fonctionnent aussi.
+* Le message du réglage liste les extensions reconnues : `.ico`, `.png`, `.bmp`, `.gif`, `.jpg`, `.mng`.
 * Si l'option est décochée, ou si aucune image n'est présente, le plugin n'ajoute rien aux pages.
 * Une adresse de favicon dont l'extension n'est pas reconnue, ou dont le fichier n'existe pas, renvoie une erreur 404.
