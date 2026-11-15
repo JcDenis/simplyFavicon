@@ -52,7 +52,7 @@ class Backend
 
                 $exists = [];
                 $path   = Path::fullFromRoot($blog_settings->get('system')->getStr('public_path', false), App::config()->dotclearRoot());
-                foreach (['ico', 'png', 'bmp', 'gif', 'jpg', 'mng'] as $ext) {
+                foreach (array_keys(My::MIME_TYPES) as $ext) {
                     if (file_exists($path . '/favicon.' . $ext)) {
                         $url      = App::blog()->url() . App::url()->getURLFor('simplyFavicon') . '.' . $ext;
                         $exists[] = (new Li())
@@ -72,14 +72,17 @@ class Backend
                             ->items([
                                 (new Para())
                                     ->items([
-                                        (new Checkbox('simply_favicon', (bool) $blog_settings->get('system')->get('simply_favicon')))
+                                        (new Checkbox('simply_favicon', (bool) $blog_settings->get(My::id())->get('active')))
                                             ->value('1'),
                                         (new Label(__('Enable favorite icon'), Label::OUTSIDE_LABEL_AFTER))
                                             ->for('simply_favicon')
                                             ->class('classic'),
                                     ]),
                                 (new Note())
-                                    ->text(__("You must place an image called favicon.png or .jpg or .ico into your blog's public directory."))
+                                    ->text(sprintf(
+                                        __("Place an image called favicon with one of these extensions into the blog's public directory: %s."),
+                                        implode(', ', array_map(fn (string $ext): string => '.' . $ext, array_keys(My::MIME_TYPES)))
+                                    ))
                                     ->class('form-note'),
                             ]),
                         (new Div())
@@ -100,7 +103,7 @@ class Backend
                     ->render();
             },
             'adminBeforeBlogSettingsUpdate' => function (BlogSettingsInterface $blog_settings): void {
-                $blog_settings->get('system')->put('simply_favicon', !empty($_POST['simply_favicon']));
+                $blog_settings->get(My::id())->put('active', !empty($_POST['simply_favicon']), 'boolean', 'Enable favicon');
             },
         ]);
 

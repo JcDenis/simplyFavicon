@@ -24,7 +24,7 @@ class FrontendUrl
 
         $public_path = Path::fullFromRoot(App::blog()->settings()->get('system')->getStr('public_path', false), App::config()->dotclearRoot());
 
-        if (App::blog()->settings()->get('system')->get('simply_favicon')
+        if (My::settings()->get('active')
             && !empty($arg)
             && array_key_exists($arg, My::MIME_TYPES)
             && file_exists($public_path . '/favicon.' . $arg)
