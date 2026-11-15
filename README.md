@@ -12,6 +12,8 @@ _simplyFavicon_ is a plugin for the open-source web publishing software called [
 
 > Add a favicon to your blog.
 
+A [user guide in French](https://github.com/JcDenis/simplyFavicon/blob/master/docs/fr/utilisation.md) is available.
+
 ## REQUIREMENTS
 
 * Dotclear 2.39
@@ -30,6 +32,7 @@ simplyFavicon add required code to public page to show favicon on browser.
 
 ## LINKS
 
+* [User guide (in French)](https://github.com/JcDenis/simplyFavicon/blob/master/docs/fr/utilisation.md)
 * [License](https://github.com/JcDenis/simplyFavicon/blob/master/LICENSE)
 * [Packages & details](https://github.com/JcDenis/simplyFavicon/releases) (or on [Repository](https://dotclear.org/plugin/detail/simplyFavicon))
 * [Sources & contributions](https://github.com/JcDenis/simplyFavicon)
