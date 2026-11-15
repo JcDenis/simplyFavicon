@@ -20,14 +20,16 @@ Required Dotclear and PHP versions: see `_define.php`.
 * `src/Backend.php`: admin side: menu entry, favorites, behaviors registration.
 * `src/Frontend.php`: public side: behaviors, template tags and URL handlers registration.
 * `src/FrontendUrl.php`: public URL handler.
+* `src/Install.php`: install and update, moves the old setting `system.simply_favicon` to `simplyFavicon.active`.
 * `src/My.php`: module helpers (`My::id()`, settings, permissions).
 * `src/Prepend.php`: loaded on every request: autoload, URL handlers, permission types.
+* `src/Uninstall.php`: cleaners for the plugin Uninstaller.
 * URL handlers: `simplyFavicon`.
 * Behaviors used: `publicHeadContent`, `adminBlogPreferencesFormV2`, `adminBeforeBlogSettingsUpdate`.
 
 ## Pitfalls
 
-* None recorded yet: add here the traps met while working on the module.
+* The setting is in the module namespace (`simplyFavicon.active`) since 2026.11: do not write in the core `system` namespace.
 
 ## Testing
 
