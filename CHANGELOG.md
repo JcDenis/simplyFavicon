@@ -1,6 +1,5 @@
 simplyFavicon 2026.11.15
 ===========================================================
-* Add Claude to contributors
 * [fix] Declare all existing favicons with rel icon, list supported extensions, setting in module namespace with uninstall
 * [lang] Consistent French labels
 * [docs] Add a user guide in French, with screenshots
